@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b3tgfk5qvidlh"]
+
+[ext_resource type="Texture2D" uid="uid://rm0tb5gvmyer" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/items/hollow-dolphin_hollow-echo_crystal-item.png" id="1_4ejf6"]
+[ext_resource type="Script" uid="uid://bxo21u7c7ceh" path="res://cure.gd" id="1_rgtnn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afmmk"]
+size = Vector2(8.987009, 7.7452974)
+
+[node name="Area2D" type="Area2D" unique_id=709250076]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_rgtnn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=957954674]
+texture = ExtResource("1_4ejf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=181354912]
+position = Vector2(-0.24926344, 0.26917952)
+rotation = 0.747001
+shape = SubResource("RectangleShape2D_afmmk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
