@@ -29,7 +29,9 @@ color = Color(0, 0, 0, 1)
 offset_left = 188.0
 offset_top = 364.0
 offset_right = 338.0
-offset_bottom = 496.0
+offset_bottom = 600.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="." unique_id=1540633571]
 offset_left = 363.0
@@ -39,6 +41,7 @@ offset_bottom = 537.0
 text = "fcerfcrf"
 autowrap_mode = 3
 visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Label2" type="Label" parent="." unique_id=8618918]
 offset_left = 362.0

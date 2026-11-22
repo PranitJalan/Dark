@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://crk1n7f1mkj3q" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/background/hollow-dolphin_hollow-echo_far-bg.png" id="7_mxnmf"]
 [ext_resource type="Texture2D" uid="uid://ca4py4cvy2epy" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/background/hollow-dolphin_hollow-echo_middle-bg.png" id="8_86ljf"]
 [ext_resource type="Texture2D" uid="uid://h2ox61pvpe0s" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/background/hollow-dolphin_hollow-echo_near-bg.png" id="9_3ywx5"]
+[ext_resource type="PackedScene" uid="uid://lp11tiwyyndw" path="res://NPC.tscn" id="11_ofirr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7iv1"]
 texture = ExtResource("1_bexhn")
@@ -331,7 +332,7 @@ shader_parameter/aspect_ratio = 1.77777
 script = ExtResource("1_wkftn")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=436722828]
-tile_map_data = PackedByteArray("AAD1/woAAAAEAAAAAAD2/woAAAAFAAAAAAD3/woAAAAFAAAAAAD4/woAAAAFAAAAAAD5/woAAAAFAAAAAAD6/woAAAAFAAAAAAD7/woAAAAFAAAAAAD7/wkAAAAFAAAAAAD8/wkAAAAFAAAAAAD9/wkAAAAFAAAAAAD+/wkAAAAFAAAAAAD//wkAAAAFAAAAAAAAAAkAAAAFAAAAAAABAAkAAAAFAAAAAAABAAoAAAAFAAAAAAACAAoAAAAFAAAAAAADAAoAAAAFAAAAAAAEAAoAAAAFAAAAAAAFAAoAAAAFAAAAAAAGAAoAAAAFAAAAAAAHAAoAAAAFAAAAAAAIAAoAAAAFAAAAAAAJAAoAAAAFAAAAAAAKAAoAAAAFAAAAAAALAAoAAAAFAAAAAAAMAAoAAAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1/woAAAAEAAAAAAD2/woAAAAFAAAAAAD3/woAAAAFAAAAAAD4/woAAAAFAAAAAAD5/woAAAAFAAAAAAD6/woAAAAFAAAAAAD7/woAAAAFAAAAAAD7/wkAAAAFAAAAAAD8/wkAAAAFAAAAAAD9/wkAAAAFAAAAAAD+/wkAAAAFAAAAAAD//wkAAAAFAAAAAAAAAAkAAAAFAAAAAAABAAkAAAAFAAAAAAABAAoAAAAFAAAAAAACAAoAAAAFAAAAAAADAAoAAAAFAAAAAAAEAAoAAAAFAAAAAAAFAAoAAAAFAAAAAAAGAAoAAAAFAAAAAAAHAAoAAAAFAAAAAAAIAAoAAAAFAAAAAAAJAAoAAAAFAAAAAAAKAAoAAAAFAAAAAAALAAoAAAAFAAAAAAAMAAoAAAAGAAAAAAD0/wkAAAAFAAEAAADz/wgAAAAFAAEAAADy/wcAAAAFAAEAAADx/wYAAAAFAAEAAADw/wUAAAAFAAEAAADv/wQAAAAFAAEAAADt/wMAAAAFAAEAAADu/wMAAAAFAAEAAADs/wEAAAAFAAEAAADy////AAAFAAEAAAD1//7/AAAFAAEAAAD3//3/AAAFAAEAAAD5//z/AAAFAAEAAAD7//r/AAAFAAEAAAD8//r/AAAFAAEAAAD9//r/AAAFAAEAAAD+//r/AAAFAAEAAAD///r/AAAFAAEAAAAAAPr/AAAFAAEAAAABAPr/AAAFAAEAAAACAPr/AAAFAAEAAAADAPr/AAAFAAEAAAAEAPr/AAAFAAEAAAAFAPr/AAAFAAEAAAAGAPr/AAAFAAEAAAAHAPr/AAAFAAEAAAAIAPr/AAAFAAEAAAAJAPr/AAAFAAEAAAAKAPr/AAAFAAEAAAALAPr/AAAFAAEAAADu////AAAFAAEAAADv////AAAFAAEAAADw////AAAFAAEAAADx////AAAFAAEAAAD0//7/AAAFAAEAAAD2//3/AAAFAAEAAAD4//z/AAAFAAEAAAD6//v/AAAFAAEAAAA=")
 tile_set = SubResource("TileSet_3d3go")
 
 [node name="CharacterBody2D" parent="." unique_id=1228309942 instance=ExtResource("2_t7iv1")]
@@ -392,4 +393,7 @@ position = Vector2(1, 141)
 texture = ExtResource("9_3ywx5")
 centered = false
 
-[node name="CanvasLayer2" parent="." unique_id=689214609 instance=ExtResource("3_3ywx5")]
+[node name="CanvasLayer2" parent="." unique_id=689214609 groups=["dialoge"] instance=ExtResource("3_3ywx5")]
+
+[node name="Area2D2" parent="." unique_id=163668596 instance=ExtResource("11_ofirr")]
+position = Vector2(-155, 136)

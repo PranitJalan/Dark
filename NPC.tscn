@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://lp11tiwyyndw"]
+
+[ext_resource type="Script" uid="uid://ddihmv1wa0oiu" path="res://npc.gd" id="1_ll5ud"]
+[ext_resource type="Texture2D" uid="uid://bscp4fyp6f3vd" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/character/hollow-dolphin_hollow-echo_green-character_spritesheet.png" id="1_twre2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afmmk"]
+size = Vector2(17, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ll5ud"]
+size = Vector2(21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1jv5"]
+atlas = ExtResource("1_twre2")
+region = Rect2(0, 0, 49, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tciug"]
+atlas = ExtResource("1_twre2")
+region = Rect2(49, 0, 49, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bksm8"]
+atlas = ExtResource("1_twre2")
+region = Rect2(98, 0, 49, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc52h"]
+atlas = ExtResource("1_twre2")
+region = Rect2(147, 0, 49, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qr5sa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1jv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tciug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bksm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc52h")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="StaticBody2D" unique_id=163668596]
+script = ExtResource("1_ll5ud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=214662639]
+position = Vector2(-1.5, 7)
+shape = SubResource("RectangleShape2D_afmmk")
+
+[node name="Area2D" type="Area2D" parent="CollisionShape2D" unique_id=1499606274]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Area2D" unique_id=1368721751]
+shape = SubResource("RectangleShape2D_ll5ud")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=61398660]
+sprite_frames = SubResource("SpriteFrames_qr5sa")
+autoplay = "default"
+frame_progress = 0.11029497
+
+[connection signal="body_entered" from="CollisionShape2D/Area2D" to="." method="_on_area_2d_body_entered"]

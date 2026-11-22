@@ -13,7 +13,6 @@ var tween : Tween
 var space : Tween
 
 
-
 func _process(delta: float) -> void:
 	if is_busy:
 		visible = true
@@ -27,7 +26,9 @@ func _process(delta: float) -> void:
 
 func _print(dialouge : Array[String] = ["Here you are, i have been looking for yu everywheei have a quest close your eyes", "go on do it, i m your best friend i will never ever betray you my dear hahahahahhahaha"], icon : Texture = null, name : String = "Villager", charss_per_second : int = 10):
 	if not is_busy:
+		process_mode = Node.PROCESS_MODE_ALWAYS
 		is_busy = true
+		get_tree().paused = true
 		dialogues = dialouge
 		texture = icon
 		chars_per_second = charss_per_second
@@ -50,6 +51,7 @@ func _print(dialouge : Array[String] = ["Here you are, i have been looking for y
 				
 			
 		is_busy = false
+		get_tree().paused = false
 
 
 func _text(index):

@@ -9,6 +9,11 @@ extends CharacterBody2D
 var direction = 1
 var jump = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+ 
+
+
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
 func _physics_process(delta: float) -> void:
@@ -30,9 +35,12 @@ func animate():
 		animated_sprite_2d.play("jump_fall")
 		
 func get_input():
-	direction = Input.get_axis("left", "right")
-	if Input.is_action_just_pressed("jump"):
-		jump = true
+	if get_tree().paused == false:
+		direction = Input.get_axis("left", "right")
+		if Input.is_action_just_pressed("jump"):
+			jump = true
+	else:
+		direction = 0
 
 
 func process_movement(delta):
