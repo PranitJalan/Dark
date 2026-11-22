@@ -10,17 +10,19 @@ var tween : Tween
 @onready var label_2: Label = $Label2
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var label_3: Label = $Label3
+var space : Tween
+
+
 
 func _process(delta: float) -> void:
 	if is_busy:
 		visible = true
-		label_3.visible = not label_3.visible
+		if not (space and space.is_running()):
+			space = create_tween()
+			var taget = 1 - label_3.modulate.a 
+			space.tween_property(label_3, "modulate", Color(1, 1, 1, taget ), 1 )
 	else:
 		visible = false
-
-func _ready() -> void:
-	_print()
-
 
 
 func _print(dialouge : Array[String] = ["Here you are, i have been looking for yu everywheei have a quest close your eyes", "go on do it, i m your best friend i will never ever betray you my dear hahahahahhahaha"], icon : Texture = null, name : String = "Villager", charss_per_second : int = 10):
