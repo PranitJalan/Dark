@@ -1,10 +1,8 @@
 extends CanvasLayer
 
-var dialogues : Array[String] = []
+
 var chars_per_second : float = 10.0
 @onready var label: Label = $Label
-var texture : Texture
-var title : String
 var is_busy = false
 var tween : Tween
 @onready var label_2: Label = $Label2
@@ -24,30 +22,53 @@ func _process(delta: float) -> void:
 		visible = false
 
 
-func _print(dialouge : Array[String] = ["Here you are, i have been looking for yu everywheei have a quest close your eyes", "go on do it, i m your best friend i will never ever betray you my dear hahahahahhahaha"], icon : Texture = null, name : String = "Villager", charss_per_second : int = 10):
+func _print(complete_process : Array):
 	if not is_busy:
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		is_busy = true
 		get_tree().paused = true
-		dialogues = dialouge
-		texture = icon
-		chars_per_second = charss_per_second
-		title = name
-		label_2.text = title
-		if texture:
-			texture_rect.texture = texture
-		for i in dialogues.size():
-			_text(i)
-			await get_tree().process_frame
-			while not Input.is_action_just_pressed("jump"):
-				await get_tree().process_frame
+		
+		
+		var texture : Texture = complete_process[0][0]
+		var title = complete_process[0][1]
+		chars_per_second = complete_process[1]
+		var player =  complete_process[0][3]
+		var speaker = complete_process[0][2]
+		var player_icon = player.animated_sprite_2d.sprite_frames.get_frame_texture("idle", 0)
+		
+		
+		
+		
+		
+		
+		for i in complete_process[2]:
 			
-			if tween and tween.is_running():
-				tween.kill()
-				label.visible_characters = -1
+			var dialouge = complete_process[3+i]
+			if not dialouge[0]: 
+				# if not choice
+				if dialouge[1]:
+					# if player
+					label_2.text = "You"
+					texture_rect.texture = player_icon
+				else:
+					#if not player
+					label_2.text = title
+					if texture:
+						texture_rect.texture = texture
+				_text(dialouge[2])
 				await get_tree().process_frame
 				while not Input.is_action_just_pressed("jump"):
 					await get_tree().process_frame
+				
+				if tween and tween.is_running():
+					tween.kill()
+					label.visible_characters = -1
+					await get_tree().process_frame
+					while not Input.is_action_just_pressed("jump"):
+						await get_tree().process_frame
+			
+			
+			
 				
 			
 		is_busy = false
@@ -57,7 +78,7 @@ func _print(dialouge : Array[String] = ["Here you are, i have been looking for y
 func _text(index):
 	if tween and tween.is_running():
 		tween.kill()
-	var text = dialogues[index]
+	var text = index
 	tween = create_tween()
 	label.text = text
 	label.visible_characters = 0
