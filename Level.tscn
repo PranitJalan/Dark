@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://f1hwfmqg560t" path="res://level.gd" id="1_wkftn"]
 [ext_resource type="PackedScene" uid="uid://bqd2dnxf0e1tp" path="res://Player.tscn" id="2_t7iv1"]
 [ext_resource type="Shader" uid="uid://bhwjsm6l8dd21" path="res://dark.gdshader" id="3_2nifc"]
+[ext_resource type="PackedScene" uid="uid://domm22w1l1nx4" path="res://Dialouge.tscn" id="3_3ywx5"]
 [ext_resource type="PackedScene" uid="uid://b3tgfk5qvidlh" path="res://Cure.tscn" id="5_q4iis"]
 [ext_resource type="Texture2D" uid="uid://c1shbwkdu7ukp" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/background/hollow-dolphin_hollow-echo_bg.png" id="6_m3clv"]
 [ext_resource type="Texture2D" uid="uid://crk1n7f1mkj3q" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/background/hollow-dolphin_hollow-echo_far-bg.png" id="7_mxnmf"]
@@ -390,3 +391,5 @@ repeat_times = 3
 position = Vector2(1, 141)
 texture = ExtResource("9_3ywx5")
 centered = false
+
+[node name="CanvasLayer2" parent="." unique_id=689214609 instance=ExtResource("3_3ywx5")]
