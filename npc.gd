@@ -12,8 +12,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var setup : Array
 		setup.append([icon, name, self, body])
 		setup.append(30)
-		setup.append(3)
+		setup.append(4)
 		setup.append([false, false, "howdy, how are yu i have a quest if u wish to accept"])
 		setup.append([false, true, "no i dont wantto accpet go way and never come back"])
 		setup.append([false, false, "how dare you, u r going to get bsnish ed to the never land"])
+		setup.append([true, 3, ["neverland"], ["everland"], ["severland"]])
 		get._print(setup)

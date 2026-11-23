@@ -9,7 +9,13 @@ var tween : Tween
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var label_3: Label = $Label3
 var space : Tween
+@export var choice : PackedScene
+@onready var v_box_container: VBoxContainer = $VBoxContainer
+var selected = -1
 
+func make(number, refernce : Node2D, name):
+	# refernce.call_deferred(name)
+	selected = number
 
 func _process(delta: float) -> void:
 	if is_busy:
@@ -21,6 +27,34 @@ func _process(delta: float) -> void:
 	else:
 		visible = false
 
+# Structure of complete_process -
+#Array [
+	#Array [
+		#npc_icon,
+		#npc_name,
+		#npc_reference,
+		#player_reference
+	#],
+	#chars_per_second,
+	#number_of_dialouges/choices = 2,
+	#Array (for a choice) [
+		#is_choice = true,
+		#no_of_choices = 2,
+		#Array [
+			#Choice_statement,
+			#choice_function (called on npc_reference)
+		#]
+		#Array [
+			#Choice_statement,
+			#choice_function (called on npc_reference)
+		#]
+	#],
+	#Array (for a dialouge) [
+		#is_choice = false,
+		#is_player_speaking,
+		#dialouge (string)
+	#]
+#]
 
 func _print(complete_process : Array):
 	if not is_busy:
@@ -66,11 +100,36 @@ func _print(complete_process : Array):
 					await get_tree().process_frame
 					while not Input.is_action_just_pressed("jump"):
 						await get_tree().process_frame
-			
-			
-			
+			else:
+				label_2.text = "Make a Choice"
+				label_3.text = "Left Click"
+				texture_rect.texture = player_icon
+				label.visible_characters = 0
+				var choices_number = dialouge[1]
+				for choice_no in range(choices_number):
+					var current_choice = dialouge[2+choice_no]
+					var button = choice.instantiate()
+					button.text = current_choice[0]
+					v_box_container.add_child(button)
+					button.pressed.connect(make.bind(choice_no, speaker, current_choice[1]))
+				while not selected > -1:
+					await get_tree().process_frame
+				for child in v_box_container.get_children():
+					child.queue_free()
+				label_2.text = "You"
+				label_3.text = "Space"
+				_text(dialouge[2+selected][0])
+				selected = -1
+				await get_tree().process_frame
+				while not Input.is_action_just_pressed("jump"):
+					await get_tree().process_frame
 				
-			
+				if tween and tween.is_running():
+					tween.kill()
+					label.visible_characters = -1
+					await get_tree().process_frame
+					while not Input.is_action_just_pressed("jump"):
+						await get_tree().process_frame
 		is_busy = false
 		get_tree().paused = false
 

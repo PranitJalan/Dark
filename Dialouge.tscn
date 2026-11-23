@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://domm22w1l1nx4"]
 
 [ext_resource type="Script" uid="uid://cuw03e48ck4lw" path="res://dialouge.gd" id="1_q40it"]
+[ext_resource type="PackedScene" uid="uid://mdhn28s7ssc" path="res://Choice.tscn" id="2_u20gn"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=689214609]
 script = ExtResource("1_q40it")
+choice = ExtResource("2_u20gn")
 
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=1654430677]
 offset_left = 172.0
@@ -53,12 +55,18 @@ theme_override_font_sizes/font_size = 23
 text = "refetr"
 horizontal_alignment = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=274882904]
+offset_left = 363.0
+offset_top = 414.0
+offset_right = 924.0
+offset_bottom = 543.0
+
 [node name="Label3" type="Label" parent="." unique_id=807612108]
-offset_left = 799.0
+offset_left = 403.0
 offset_top = 551.0
 offset_right = 912.0
 offset_bottom = 589.0
 theme_override_font_sizes/font_size = 27
-text = "SPACE"
-horizontal_alignment = 1
+text = "Space"
+horizontal_alignment = 2
 vertical_alignment = 1

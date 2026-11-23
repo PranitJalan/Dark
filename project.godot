@@ -15,6 +15,10 @@ run/main_scene="res://Level.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Glob="*uid://dthbvrnt24qg2"
+
 [display]
 
 window/stretch/mode="canvas_items"

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://mdhn28s7ssc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qr5sa"]
+
+[node name="Control" type="Button" unique_id=639786621]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 420.0
+offset_top = 238.0
+offset_right = -420.0
+offset_bottom = -238.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qr5sa")
+text = "Hello Mister"
