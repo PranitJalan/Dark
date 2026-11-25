@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://domm22w1l1nx4" path="res://Dialouge.tscn" id="3_3ywx5"]
 [ext_resource type="Texture2D" uid="uid://bw7opja1ryvqh" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/character/hollow-dolphin_hollow-echo_pink-character_spritesheet.png" id="4_3ywx5"]
 [ext_resource type="PackedScene" uid="uid://lp11tiwyyndw" path="res://NPC.tscn" id="5_ofirr"]
+[ext_resource type="PackedScene" uid="uid://b3tgfk5qvidlh" path="res://Cure.tscn" id="6_d6u53"]
 [ext_resource type="Texture2D" uid="uid://c1shbwkdu7ukp" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/background/hollow-dolphin_hollow-echo_bg.png" id="6_m3clv"]
 [ext_resource type="Texture2D" uid="uid://crk1n7f1mkj3q" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/background/hollow-dolphin_hollow-echo_far-bg.png" id="7_mxnmf"]
 [ext_resource type="Texture2D" uid="uid://ca4py4cvy2epy" path="res://hollow-dolphin_hollow-echo_asset-pack_ver-01/background/hollow-dolphin_hollow-echo_middle-bg.png" id="8_86ljf"]
@@ -371,8 +372,11 @@ func _add_coin():
 	freebie = true
 
 func _cure():
-	print(\"here\")
-	get_tree().get_first_node_in_group(\"level\").radius += 0.5
+	var level = get_tree().get_first_node_in_group(\"level\")
+	level.radius += 0.5
+	var current = level.radius - 0.5
+	var tween = create_tween()
+	tween.tween_property(level, \"radius\", current, 20)
 	freebie = true
 "
 
@@ -867,6 +871,9 @@ flip_h = true
 
 [node name="Collectables" type="Node2D" parent="LEVEL 1" unique_id=1962595685]
 
+[node name="Area2D" parent="LEVEL 1/Collectables" unique_id=709250076 instance=ExtResource("6_d6u53")]
+position = Vector2(-85, 4)
+
 [node name="LEVEL 2" type="Node2D" parent="." unique_id=1460616096]
 
 [node name="Area2D" parent="LEVEL 2" unique_id=1680714230 instance=ExtResource("5_ofirr")]
@@ -920,7 +927,6 @@ texture = ExtResource("9_3ywx5")
 centered = false
 
 [node name="BLINDNESS" type="CanvasLayer" parent="Stuff" unique_id=1951246770]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Stuff/BLINDNESS" unique_id=1357368009]
 material = SubResource("ShaderMaterial_qr5sa")

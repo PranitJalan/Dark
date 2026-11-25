@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 
 
 func _ready():
-	# _change_scene("start")
+	_change_scene("start")
 	pass
 	
 func _change_scene(scene : String):
