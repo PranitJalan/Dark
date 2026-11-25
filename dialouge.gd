@@ -144,6 +144,4 @@ func _text(index):
 	tween = create_tween()
 	label.text = text
 	label.visible_characters = 0
-	print("enter")
-	print(label.visible_characters)
 	tween.tween_property(label, "visible_characters", label.get_total_character_count(), label.get_total_character_count()/chars_per_second)

@@ -27,8 +27,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			[false, false, "I would need 5 ruins"]
 		])
 		await get._print(setup)
-		if level.coins < 5:
-			setup.append([icon, name, self, body])
+		setup.clear()
+		setup.append([icon, name, self, body])
 		setup.append(30)
 		setup.append_array([
 			7,
