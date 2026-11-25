@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://c354gmexub2g5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afmmk"]
+bg_color = Color(0.13333334, 0.13333334, 0.40784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yv1b8"]
+bg_color = Color(0, 0.6, 0.6, 1)
+
+[sub_resource type="GDScript" id="GDScript_ofirr"]
+script/source = "extends Button
+
+
+
+func _on_pressed() -> void:
+	Glob.start()
+"
+
+[sub_resource type="GDScript" id="GDScript_d6u53"]
+script/source = "extends Button
+
+
+
+
+func _on_pressed() -> void:
+	Glob.level = null
+	Glob.start()
+"
+
+[node name="Control" type="Control" unique_id=208566830]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=338613163]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect" unique_id=39069755]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer3" unique_id=1593584528]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer3/VBoxContainer" unique_id=115320728]
+layout_mode = 2
+theme_override_font_sizes/font_size = 113
+text = "Mr.Doctor"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="ColorRect/VBoxContainer3/VBoxContainer" unique_id=1823076678]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/VBoxContainer3" unique_id=392473966]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer3/VBoxContainer2" unique_id=1596678227]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer3/VBoxContainer2/HBoxContainer" unique_id=644040602]
+custom_minimum_size = Vector2(400, 0)
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 47
+theme_override_styles/normal = SubResource("StyleBoxFlat_afmmk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yv1b8")
+text = "Play"
+script = SubResource("GDScript_ofirr")
+
+[node name="Control" type="Control" parent="ColorRect/VBoxContainer3/VBoxContainer2" unique_id=1939962532]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer3/VBoxContainer2" unique_id=889134049]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer3/VBoxContainer2/HBoxContainer2" unique_id=1467455797]
+custom_minimum_size = Vector2(400, 0)
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 47
+theme_override_styles/normal = SubResource("StyleBoxFlat_afmmk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yv1b8")
+text = "Restart"
+script = SubResource("GDScript_d6u53")
+
+[node name="Control2" type="Control" parent="ColorRect/VBoxContainer3/VBoxContainer2" unique_id=473956948]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/VBoxContainer3/VBoxContainer2" unique_id=445280522]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer3/VBoxContainer2/HBoxContainer3" unique_id=1564342713]
+custom_minimum_size = Vector2(400, 0)
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 47
+theme_override_styles/normal = SubResource("StyleBoxFlat_afmmk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yv1b8")
+text = "Guide"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer3/VBoxContainer2/HBoxContainer/Button" to="ColorRect/VBoxContainer3/VBoxContainer2/HBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer3/VBoxContainer2/HBoxContainer2/Button" to="ColorRect/VBoxContainer3/VBoxContainer2/HBoxContainer2/Button" method="_on_pressed"]

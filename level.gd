@@ -3,11 +3,11 @@ extends Node2D
 
 
 # Player variables
-var coins = 0
+var coins = 10
 
 
 
-
+var checkpoint
 
 
 
@@ -23,6 +23,7 @@ var aspect_ratio
 var scenes : Dictionary[String, Vector2] ={
 	"start" : Vector2(-200, -90),
 	"backdoor" : Vector2(-400, 1400),
+	"doctor" : Vector2(1350, 1400)
 }
 @onready var player: CharacterBody2D = $PLAYER
 
@@ -43,3 +44,4 @@ func _ready():
 	
 func _change_scene(scene : String):
 	player.position = scenes[scene]
+	checkpoint = scenes[scene]
