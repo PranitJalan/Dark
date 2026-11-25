@@ -14,9 +14,10 @@ var space : Tween
 var selected = -1
 
 func make(number, refernce : Node2D, name):
-	# refernce.call_deferred(name)
+	refernce.call_deferred(name)
 	selected = number
-
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 func _process(delta: float) -> void:
 	if is_busy:
 		visible = true
@@ -57,8 +58,10 @@ func _process(delta: float) -> void:
 #]
 
 func _print(complete_process : Array):
-	if not is_busy:
-		process_mode = Node.PROCESS_MODE_ALWAYS
+	while is_busy:
+		await get_tree().process_frame
+	if true:
+		
 		is_busy = true
 		get_tree().paused = true
 		

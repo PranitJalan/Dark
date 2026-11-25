@@ -1,5 +1,22 @@
 extends Node2D
 
+
+
+# Player variables
+var coins = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
 var radius = 0.2
 var aspect_ratio
 @onready var color_rect: ColorRect = $Stuff/BLINDNESS/ColorRect
