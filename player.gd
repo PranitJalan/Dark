@@ -55,3 +55,7 @@ func process_movement(delta):
 	else:
 		velocity.y += Gravity*delta
 	jump = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	position = get_tree().get_first_node_in_group("level").checkpoint
