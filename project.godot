@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dark"
-run/main_scene="res://Level.tscn"
+run/main_scene="uid://c354gmexub2g5"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

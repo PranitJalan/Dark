@@ -31,10 +31,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			setup.append([icon, name, self, body])
 		setup.append(30)
 		setup.append_array([
-			5,
+			7,
 			[false, true, "But I do not have enough"],
-			[false, false, "Welcome to the Clinic"],
-			[false, true, "Theres problem with my visison"],
-			[false, false, 'Do not worry I will fix it'],
-			[false, false, "I would need 5 ruins"]
+			[false, false, "I cant help you then"],
+			[false, false, "*sighs"],
+			[false, false, 'Wait, I will do it for free'],
+			[false, true, "Oh Thanks you doctor thank you so much"],
+			[false, false, "The game is over, I didnt have enough time to make a endscreen"],
+			[false, false, "Restart the game and explore other choices, there are more ways to get here"]
 		])
+		await get._print(setup)
+		level.radius = 2

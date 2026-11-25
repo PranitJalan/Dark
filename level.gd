@@ -3,7 +3,7 @@ extends Node2D
 
 
 # Player variables
-var coins = 10
+var coins = 0
 
 
 
@@ -23,7 +23,8 @@ var aspect_ratio
 var scenes : Dictionary[String, Vector2] ={
 	"start" : Vector2(-200, -90),
 	"backdoor" : Vector2(-1800, 40),
-	"reception" : Vector2(2700, 40)
+	"reception" : Vector2(2700, 40),
+	"doctor" : Vector2(-2700, 60)
 }
 @onready var player: CharacterBody2D = $PLAYER
 
@@ -39,7 +40,7 @@ func _process(delta: float) -> void:
 
 
 func _ready():
-	#_change_scene("start")
+	_change_scene("start")
 	pass
 	
 func _change_scene(scene : String):

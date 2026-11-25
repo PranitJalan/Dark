@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://d2mvwu5kgjwmh"]
+
+[sub_resource type="GDScript" id="GDScript_qr5sa"]
+script/source = "extends Button
+
+
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://main menu.tscn\")
+"
+
+[node name="Control" type="Control" unique_id=531100481]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1654504396]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=485411937]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.035
+offset_right = 1128.416
+offset_bottom = 90.32
+theme_override_font_sizes/font_size = 70
+text = "GUIDE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect" unique_id=88204359]
+layout_mode = 0
+offset_top = 186.0
+offset_right = 1155.0
+offset_bottom = 655.0
+theme_override_font_sizes/font_size = 29
+text = "Use WASD TO CONTROL THE CHARACTER \\YOUR CHOICES HAVE CONCEQUENCES SO CHOOSE CAREFULLY AND TO EXPLORE ALL THE PATHWAYS, RESTART THE GAME FROM THE MENU AND MAKE DIFFERENT CHOICES.\\RUINS ARE USED TO PAY NPCs TO GET YOUR WAY, COLLECT ALL YOU SEE\\CURES WILL TEMPORARILY HEAL YOUR VISION\\THE GAME IS TOO BIG TO SEE IN ITS ENTIREITY IN 1 PLAYTHROUGH (NOT IN THE SENSE OF SCALE BUT THE COMPLEXITY AND THE DYNAMICS OF YOUR CHOICES.\\SO TO EXPERIENCE EVERYTHING 5 PLAYTHROUGHS ARE RECOMMENDED\\YOU CAN SOFTLOCK YOUSELF VERY EASILY SO BE CAREFUL"
+autowrap_mode = 3
+paragraph_separator = "\\"
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=1637727020]
+layout_mode = 0
+offset_right = 194.37587
+offset_bottom = 87.91613
+rotation = -0.0030904447
+theme_override_font_sizes/font_size = 47
+text = "BACK"
+script = SubResource("GDScript_qr5sa")
+
+[connection signal="pressed" from="ColorRect/Button" to="ColorRect/Button" method="_on_pressed"]
